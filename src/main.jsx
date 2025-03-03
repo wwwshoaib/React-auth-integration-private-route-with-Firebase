@@ -12,6 +12,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Register2 from "./components/Register2/Register2";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import AuthProvider from "./providers/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
         element: <Register2></Register2>
       },
     ]
-  }, 
+  },
   {
     path: "/about",
     element: <div className="flex  justify-center text-3xl text-red-400 items-center p-6">I am now at about page</div>,
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {/* This AuthProvider has been collected from AuthProvider as a useContext */}
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+
   </React.StrictMode>
 );
