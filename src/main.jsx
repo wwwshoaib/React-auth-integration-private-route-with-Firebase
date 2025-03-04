@@ -10,9 +10,11 @@ import {
 import "./index.css";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import Register2 from "./components/Register2/Register2";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import AuthProvider from "./providers/AuthProvider";
+import Orders from "./components/Orders/Orders";
+import PrivateRoute from "./routes/PrivateRoute";
+import Profile from "./components/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +35,12 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: "/register2",
-        element: <Register2></Register2>
+        path: "/orders",
+        element: <PrivateRoute> <Orders></Orders></PrivateRoute>
+      },
+      {
+        path: "/profile",
+        element: <PrivateRoute> <Profile></Profile></PrivateRoute>
       },
     ]
   },
